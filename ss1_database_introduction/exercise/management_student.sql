@@ -7,12 +7,12 @@ age int ,
 country varchar(55)
 );
 create table my_database.class(
-id int not null,
+id int primary key,
 name varchar(55)
 );
 
 create table my_database.teacher(
-id int not null,
+id int primary key,
 name varchar(55),
 age int,
 country varchar(55)
