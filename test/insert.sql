@@ -99,7 +99,8 @@ select * from instructor_class;
 -- và cả các bạn đã đăng ký nhưng chưa có lớp học.
 
  select s.* ,c.name  as class_name
-  from student s left join class c on s.class_id=c.id; 
+  from student s 
+  left join class c on s.class_id=c.id;
 
 -- join 3 bảng lấy thêm thông tin tên loại lớp
 

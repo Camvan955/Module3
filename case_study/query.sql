@@ -59,9 +59,10 @@ select kh.ho_ten
 from khach_hang kh;
 
 -- task 9:
-select month(hd.ngay_lam_hop_dong) as thang, count(hd.ngay_lam_hop_dong) as so_luong_khach_hang
-from hop_dong hd
-where year(hd.ngay_lam_hop_dong) = 2021
+select month(hd.ngay_lam_hop_dong) as thang, count(kh.ma_khach_hang) as so_luon_khach_hang
+from khach_hang kh
+join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
+where year(hd.ngay_lam_hop_dong) = '2021'
 group by thang
 order by thang;
 
