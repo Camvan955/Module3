@@ -135,15 +135,106 @@ group by hd.ma_nhan_vien
 having count(hd.ma_nhan_vien) between 1 and 3;
 
 -- Task 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
+set sql_safe_updates = 0;
+delete from nhan_vien 
+where nhan_vien.ma_nhan_vien not in ( select hop_dong.ma_nhan_vien 
+from hop_dong 
+where year(hop_dong.ngay_lam_hop_dong) between 2019 and 2021);
+-- select * from nhan_vien;
 
+-- Task 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, chỉ cập nhật những khách hàng đã từng đặt phòng
+-- với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
+ update loai_khach set ten_loai_khach = 'Diamond'
+ where (
+ select hd.ma_khach_hang from hop_dong hd
+ join dich_vu dv on hd.ma_dich_vu = dv.ma_dich_vu
+ join hop_dong_chi_tiet hdct on hd.ma_hop_dong = hdct.ma_hop_dong
+ join dich_vu_di_kem dvdk on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+ where year(hd.ngay_lam_hop_dong) = 2021 and (dvdk.gia * hdct.so_luong) + dv.chi_phi_thue > 10000000
+ group by hd.ma_khach_hang);
+ 
+ -- Task 18. Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
+set sql_safe_updates = 0;
+set foreign_key_checks = 0;
+delete from khach_hang kh
+ where kh.ma_khach_hang in (select hop_dong.ma_khach_hang
+ from hop_dong
+ where year(hop_dong.ngay_lam_hop_dong) < 2021);
+ 
+ -- Task 19: Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
+set sql_safe_updates = 0;
 
+update dich_vu_di_kem 
+set gia = gia * 2
+where ma_dich_vu_di_kem in (
+select * from
+(select dvdk.ma_dich_vu_di_kem
+from dich_vu_di_kem dvdk
+join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
+where year(hd.ngay_lam_hop_dong) = 2020
+group by dvdk.ten_dich_vu_di_kem
+having sum(hdct.so_luong) > 10) as x);
 
+  -- Task 20: Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống,
+  -- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
+  
+select ma_nhan_vien, ho_ten, email,so_dien_thoai, ngay_sinh, dia_chi from nhan_vien
+union
+select ma_khach_hang, ho_ten, email,so_dien_thoai, ngay_sinh, dia_chi from khach_hang;
 
+-- Task 21:	Tạo khung nhìn có tên là v_nhan_vien để lấy được thông tin của tất cả các nhân
+-- viên có địa chỉ là “Đà Nẵng” và đã từng lập hợp đồng cho một hoặc nhiều khách hàng
+-- bất kì với ngày lập hợp đồng là “tháng 4 2021”.
 
+create view v_nhan_vien as
+select nv.* 
+from nhan_vien nv 
+join hop_dong hd on hd.ma_nhan_vien = nv.ma_nhan_vien
+where nv.dia_chi like'% Đà Nẵng'
+and month(hd.ngay_lam_hop_dong) in (4)
+and year(hd.ngay_lam_hop_dong) in (2021);
 
+-- 22.	Thông qua khung nhìn v_nhan_vien thực hiện cập nhật địa chỉ thành “Liên Chiểu”
+--  đối với tất cả các nhân viên được nhìn thấy bởi khung nhìn này.
 
+set sql_safe_updates = 0;
+update nhan_vien nv 
+set nv.dia_chi = 'Liên Chiểu'
+where ma_nhan_vien in (
+select * from
+(select v_nhan_vien.ma_nhan_vien
+from v_nhan_vien) as x);
+                
+-- 23.	Tạo Stored Procedure sp_xoa_khach_hang dùng để xóa thông tin của một khách hàng
+-- nào đó với ma_khach_hang được truyền vào như là 1 tham số của sp_xoa_khach_hang
 
-
-
-
-
+delimiter // 
+create procedure sp_xoa_khach_hang (ma_khach int)
+begin
+delete from khach_hang
+where ma_khach_hang = ma_khach;
+end //
+delimiter ;
+    
+call sp_xoa_khach_hang(1);
+    
+-- 24.	Tạo Stored Procedure sp_them_moi_hop_dong dùng để thêm mới vào bảng hop_dong
+-- với yêu cầu sp_them_moi_hop_dong phải thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung,
+-- với nguyên tắc không được trùng khóa chính và đảm bảo toàn vẹn tham chiếu đến các bảng liên quan.
+    
+delimiter //
+create procedure sp_them_moi_hop_dong(ma_hd int, ngay_lam datetime, ngay_ket_thuc datetime, tien_coc double, ma_nv int, ma_kh int, ma_dich_vu int )
+    begin
+    set foreign_key_checks = 0; 
+    insert into hop_dong(ma_hop_dong,ngay_lam_hop_dong,ngay_het_thuc,tien_dat_coc,ma_nhan_vien,ma_khach_hang,ma_dich_vu)
+	value(ma_hd,ngay_lam,ngay_ket_thuc,tien_coc,ma_nv,ma_kh,ma_dich_vu);
+    set foreign_key_checks = 1;      
+	end //
+delimiter ;
+call sp_them_moi_hop_dong(13,'2022-12-08','2022-12-09',0,3,1,3);
+    
+ -- 25.	Tạo Trigger có tên tr_xoa_hop_dong khi xóa bản ghi trong bảng
+ -- hop_dong thì hiển thị tổng số lượng bản ghi còn lại có trong bảng hop_dong
+ -- ra giao diện console của database.
+-- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
