@@ -1,0 +1,26 @@
+body{
+    magin:0;
+}
+#header{
+    background-color: aqua;
+    height: 100px;
+    width: 100%;
+}
+#main{
+    background-color: darkgrey;
+    height: 300px;
+    width: 70%;
+    float: left;
+}
+#sidebar{
+    background-color: cadetblue;
+    height: 300px;
+    width: 30%;
+    float: left;
+}
+#footer{
+    background-color:olivedrab;
+    height: 30px;
+    width: 100%;
+    clear: both;
+}

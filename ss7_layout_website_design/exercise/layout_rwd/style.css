@@ -1,0 +1,151 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    position: fixed;
+    height: 40px;
+    background-color: #000;
+    color: #fff;
+    z-index: 1;
+}
+
+.nav {
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+
+}
+
+.nav > li {
+    display: inline-block;
+
+}
+
+li {
+    width: 120px;
+}
+
+.nav li a {
+    padding: 0 24px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    position: relative;
+    text-align: center;
+}
+
+.nav > li:hover > a {
+    background-color: darkgray;
+    color: yellow;
+
+
+}
+
+.nav li:hover .sub-nav {
+    display: block;
+    background-color: #ffffff;
+}
+
+.nav li:hover a {
+    color: black;
+}
+
+.sub-nav {
+    position: absolute;
+    list-style-type: none;
+    display: none;
+}
+
+.sub-nav li:hover {
+    background-color: yellow;
+    color: black;
+
+}
+#login{
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    right: 10px;
+    top: 0;
+    line-height: 40px;
+}
+#login:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+    color: black;
+}
+
+
+#left {
+    background-color: lightgrey;
+    height: 500px;
+    width: 20%;
+    float: left;
+}
+
+#contain {
+    background-color: white;
+    height: 500px;
+    width: 60%;
+    float: left;
+}
+#contain>h1{
+    margin-top: 45px;
+    margin-left: 6px;
+}
+#contain>p{
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: justify;
+}
+#hr{
+    color: grey;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+#contain>#test{
+    margin-top: 10px;
+    margin-left: 15px ;
+}
+
+#right {
+    color: black;
+    background-color: lightgrey;
+    min-height: 500px;
+    width: 20%;
+    float: left;
+}
+#contain-ads{
+    width: 100%;
+    height: 60%;
+    margin-top: 50px;
+}
+
+.ads{
+    width: 90%;
+    margin: 5px 5% 5px 5%;
+    border: 1px inset darkgray;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 10px;
+}
+.ads:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+#footer{
+    color: white;
+    text-align: center;
+    background-color: black;
+    height: 40px;
+    width: 100%;
+    clear: both;
+    line-height: 40px;
+}
