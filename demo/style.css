@@ -1,26 +1,42 @@
-body{
-    magin:0;
+body {
+    font-family: 'Roboto Light', sans-serif;
 }
-#header{
-    background-color: aqua;
-    height: 100px;
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #042331;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #063146;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
     width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid black;
 }
-#main{
-    background-color: darkgrey;
-    height: 300px;
-    width: 70%;
-    float: left;
-}
-#sidebar{
-    background-color: cadetblue;
-    height: 300px;
-    width: 30%;
-    float: left;
-}
-#footer{
-    background-color:olivedrab;
-    height: 30px;
-    width: 100%;
-    clear: both;
+ul li:hover a{
+    padding-left: 50px;
+
 }
