@@ -1,24 +1,42 @@
-/** {*/
-/*    box-sizing: border-box;*/
-/*}*/
+* {
+    box-sizing: border-box;
+}
 
-/*body {*/
-/*    width: 100%;*/
-/*    font-size: 1rem;*/
-/*}*/
+body {
+    margin: 5px 10px;
+    padding: 5px 10px;
+}
 
-/*nav{*/
-/*    height: 20%;*/
-/*    width: 100%;*/
-/*}*/
-/*.col-4{*/
-/*    text-align: end;*/
-/*}*/
+.left-div {
+    position: relative;
+    background-color: #86b7fe;
+    min-height: 80vh;
+}
 
-/*#flexSwitchCheckChecked{*/
-/*    text-align: end;*/
-/*}*/
+.row a{
+    text-decoration: none;
+}
 
-/*.nav2{*/
-/*    display: block;*/
-/*}*/
+.nav-item:hover {
+    cursor: pointer;
+    border: 1px inset white;
+}
+
+.content-1 {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-60%, -40%);
+}
+
+.right-div {
+    background-image: url("https://st.quantrimang.com/photos/image/2021/06/16/Hinh-nen-Windows-11-6.jpg");
+    background-size: cover;
+}
+
+.row-3 {
+    margin-top: 40px;
+    padding-left: 30px;
+}
