@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+header{
+    height: 10%;
+    width: 100%;
+}
+
+.col-2 img:hover{
+    cursor: pointer;
+    border: 1px inset #046056;
+}
+.sidenav {
+    text-align: center;
+    width: 130px;
+    z-index: 1;
+    top: 20px;
+    left: 10px;
+    overflow-x: hidden;
+}
+.navbar-nav a:hover{
+    color: white;
+    background: #2E8B57;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #046056;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: white;
+    background: #046056;
+}
+
+.main {
+    margin-left: 140px; /* Same width as the sidebar + left position in px */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
