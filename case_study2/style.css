@@ -1,16 +1,19 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-header{
+header {
     height: 10%;
     width: 100%;
 }
 
-.col-2 img:hover{
+.col-2 img:hover {
     cursor: pointer;
     border: 1px inset #046056;
 }
+
 .sidenav {
     text-align: center;
     width: 130px;
@@ -19,7 +22,8 @@ header{
     left: 10px;
     overflow-x: hidden;
 }
-.navbar-nav a:hover{
+
+.navbar-nav a:hover {
     color: white;
     background: #2E8B57;
 }
@@ -44,6 +48,15 @@ header{
 }
 
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.table {
+    margin: auto;
 }
