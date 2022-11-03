@@ -117,8 +117,27 @@
             </a></td>
             <td>
                 <a>
-                    <button type="button" class="btn btn-outline-success">Delete</button>
-                </a></td>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#myModal">Delete
+                    </button>
+                </a>
+            </td>
+        </tr>
+
+        <div class="modal" class="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Do you want to remove this facility?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </tr>
         <tr>
             <th scope="row">2</th>

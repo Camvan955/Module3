@@ -125,28 +125,28 @@
             </a></td>
             <td>
                 <a>
-                    <button type="button" class="btn btn-outline-success">Delete</button>
-                    <div class="modal" tabindex="-1">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Modal body text goes here.</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a></td>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#myModal">Delete
+                    </button>
+                </a>
+            </td>
         </tr>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Do you want to remove this facility?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <tr>
             <th scope="row">2</th>
             <td>Mark</td>
@@ -164,8 +164,28 @@
                 <button type="button" class="btn btn-outline-success">Edit</button>
             </td>
             <td>
-                <button type="button" class="btn btn-outline-success">Delete</button>
+                <a>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#myModal">Delete
+                    </button>
+                </a>
             </td>
+        </tr>
+
+        <div class="modal" class="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Do you want to remove this facility?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </tr>
         <tr>
             <th scope="row">3</th>
@@ -184,8 +204,28 @@
                 <button type="button" class="btn btn-outline-success">Edit</button>
             </td>
             <td>
-                <button type="button" class="btn btn-outline-success">Delete</button>
+                <a>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#myModal">Delete
+                    </button>
+                </a>
             </td>
+        </tr>
+
+        <div class="modal" class="myModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Do you want to remove this facility?</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </tr>
         </tbody>
     </table>
