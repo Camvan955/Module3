@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c3ec523-3add-4d70-9f26-7b414512b972" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../case_study2/casestudy.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../case_study2/casestudy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/customer_management/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/java/config/FilterUTF8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/java/controller/ProductServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/java/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/java/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/java/repository/impl/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/java/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/java/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/webapp/view/product/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/manager_product/src/main/webapp/view/product/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss10_jsp/exercise/calculator/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss10_jsp/exercise/calculator/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss10_jsp/exercise/calculator/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss10_jsp/exercise/calculator/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss10_jsp/exercise/calculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss10_jsp/exercise/calculator/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667361355898</updated>
       <workItem from="1667361360562" duration="204000" />
+      <workItem from="1667641498170" duration="277000" />
     </task>
     <servers />
   </component>
