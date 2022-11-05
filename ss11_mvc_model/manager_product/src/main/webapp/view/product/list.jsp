@@ -19,7 +19,7 @@
 <body>
 <h1 style="text-align: center; margin-top: 20px">List Product</h1>
 <a href="/product?action=add">
-    <button class="btn btn-outline-success"> Add Product</button>
+    <button class="btn btn-outline-success" > Add Product</button>
 </a>
 <table class="table table-striped" style="margin-top: 40px">
     <tr>
@@ -27,7 +27,7 @@
         <th>Name</th>
         <th>Origin</th>
         <th>Price</th>
-        <th colspan="3"></th>
+        <th colspan="4"></th>
     </tr>
 
     <c:forEach var="product" items="${productList}">
@@ -49,6 +49,11 @@
             <td>
                 <a href="/product?action=edit&id=${product.getId()}">
                     <button class="btn btn-primary">Edit</button>
+                </a>
+            </td>
+            <td>
+                <a href="/product?action=delete&id=${product.getId()}">
+                    <button class="btn btn-primary">Delete</button>
                 </a>
             </td>
 

@@ -28,11 +28,24 @@ public class ProductServlet extends HttpServlet {
             case "edit":
                 edit(request, response);
                 break;
-            case "delete":
+            case "remove":
+                delete(request,response);
                 break;
 
+
             default:
-                break;
+
+        }
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product=productService.findById(id);
+        productService.remove(id);
+        try {
+            response.sendRedirect("/product");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -49,7 +62,7 @@ public class ProductServlet extends HttpServlet {
         product.setPrice(price);
         request.setAttribute("productList", productList);
         try {
-            request.getRequestDispatcher("view/product/list.jsp").forward(request, response);
+            request.getRequestDispatcher("view/product/edit.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -95,8 +108,23 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "search":
                 searchProduct(request, response);
+            case "delete":
+                removeProduct(request,response);
             default:
                 showListProduct(request, response);
+        }
+    }
+
+    private void removeProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = productService.findById(id);
+        request.setAttribute("product", product);
+        try {
+            request.getRequestDispatcher("/view/product/remove.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
