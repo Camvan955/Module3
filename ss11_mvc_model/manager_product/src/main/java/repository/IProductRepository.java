@@ -13,7 +13,7 @@ public interface IProductRepository {
 
     public void remove(int id);
 
-    Product search(String name);
+    Product searchProduct(String name);
 
     Product findById(int id);
 }

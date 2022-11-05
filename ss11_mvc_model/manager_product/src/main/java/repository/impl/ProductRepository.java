@@ -10,9 +10,9 @@ public class ProductRepository implements IProductRepository {
     private static List<Product> productList = new ArrayList<>();
 
     static {
-        productList.add(new Product(1, "Ip XS Max", "Mỹ", 10000000));
-        productList.add(new Product(2, "Ip 11 Pro Max", "Nhật", 12000000));
-        productList.add(new Product(3, "Ip 14 Pro Max", "Hàn", 34500000));
+        productList.add(new Product(1, "Ip XS Max", "USA", 10000000));
+        productList.add(new Product(2, "Ip 11 Pro Max", "Japan", 12000000));
+        productList.add(new Product(3, "Ip 14 Pro Max", "Korea", 34500000));
     }
 
     @Override
@@ -26,7 +26,7 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public Product search(String name) {
+    public Product searchProduct(String name) {
         Product product = null;
         for (int i = 0; i < productList.size(); i++) {
             if (name == productList.get(i).getName()) {

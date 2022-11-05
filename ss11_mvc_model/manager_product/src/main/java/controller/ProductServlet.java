@@ -94,24 +94,17 @@ public class ProductServlet extends HttpServlet {
                 viewProduct(request, response);
                 break;
             case "search":
-                search(request, response);
+                searchProduct(request, response);
             default:
                 showListProduct(request, response);
         }
     }
 
-    private void search(HttpServletRequest request, HttpServletResponse response) {
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        Product product = productService.search(name);
+        Product product = productService.searchProduct(name);
         if (product != null) {
             request.setAttribute("product", product);
-            try {
-                request.getRequestDispatcher("view/product/search.jsp").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         } else {
             request.setAttribute("mess", "No product with name");
             try {
@@ -124,17 +117,11 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
+    private void viewProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = productService.findById(id);
         request.setAttribute("product", product);
-        try {
-            request.getRequestDispatcher("view/product/view.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        request.getRequestDispatcher("view/product/viewList.jsp").forward(request, response);
     }
 
     private void showListProduct(HttpServletRequest request, HttpServletResponse response) {

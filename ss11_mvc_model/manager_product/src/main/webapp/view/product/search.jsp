@@ -17,30 +17,36 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<h1> Search Product By Name</h1>
+
+<label>Enter name product:</label>
+<input type="text" id="name">
+<button type="button" class="btn btn-primary">Submit</button>
 <p>
-    <a style="text-decoration: none" href="/controller/productServlet">Back list product</a>
+    <a style="text-decoration: none" href="/product">Back list product</a>
 </p>
-<p><c:if test="${mess!=null}">
-    <span style="color: red">${mess}</span>
-</c:if>
-</p>
-<table class="table table-striped">
-    <tr>
-        <td>Id</td>
-        <td>${product.getId()}</td>
-    </tr>
-    <tr>
-        <td>Name</td>
-        <td>${product.getName()}</td>
-    </tr>
-    <tr>
-        <td>Origon</td>
-        <td>${product.getOrigin()}</td>
-    </tr>
-    <tr>
-        <td>Price</td>
-        <td>${product.getPrice()}</td>
-    </tr>
-</table>
+<%--<p><c:if test="${mess!=null}">--%>
+<%--    <span style="color: red">${mess}</span>--%>
+<%--</c:if>--%>
+
+<%--</p>--%>
+<%--<table class="table table-striped">--%>
+<%--    <tr>--%>
+<%--        <td>Id</td>--%>
+<%--        <td>${product.getId()}</td>--%>
+<%--    </tr>--%>
+<%--    <tr>--%>
+<%--        <td>Name</td>--%>
+<%--        <td>${product.getName()}</td>--%>
+<%--    </tr>--%>
+<%--    <tr>--%>
+<%--        <td>Origon</td>--%>
+<%--        <td>${product.getOrigin()}</td>--%>
+<%--    </tr>--%>
+<%--    <tr>--%>
+<%--        <td>Price</td>--%>
+<%--        <td>${product.getPrice()}</td>--%>
+<%--    </tr>--%>
+<%--</table>--%>
 </body>
 </html>

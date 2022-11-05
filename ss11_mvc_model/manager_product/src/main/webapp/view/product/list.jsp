@@ -37,14 +37,21 @@
             <td>${product.getOrigin()}</td>
             <td>${product.getPrice()}</td>
             <td>
-                <a href="/controller-product"><button class="btn btn-primary">View</button></a>
+                <a href="/product?action=view&id=${product.getId()}">
+                    <button class="btn btn-primary"> View</button>
+                </a>
             </td>
             <td>
-                <button class="btn btn-primary">Edit</button>
+                <a href="/product?action=search&id=${product.getName()}">
+                    <button class="btn btn-primary"> Search</button>
+                </a>
             </td>
             <td>
-                <button class="btn btn-primary">Delete</button>
+                <a href="/product?action=edit&id=${product.getId()}">
+                    <button class="btn btn-primary">Edit</button>
+                </a>
             </td>
+
         </tr>
 
     </c:forEach>
