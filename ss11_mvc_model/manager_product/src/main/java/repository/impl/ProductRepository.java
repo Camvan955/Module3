@@ -44,14 +44,17 @@ public class ProductRepository implements IProductRepository {
             if (id == productList.get(i).getId()) {
                 product = productList.get(i);
             }
-
         }
         return product;
     }
 
     @Override
     public void edit(int id, Product product) {
-
+        for (int i = 0; i < productList.size(); i++) {
+            if(id == productList.get(i).getId()){
+                product=productList.set(i, product);
+            }
+        }
     }
 
     @Override

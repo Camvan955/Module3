@@ -23,27 +23,12 @@
         <button class="btn btn-success">Back to Product List</button>
     </a>
 </p>
-<%--    <c:if test="${mess!=null}">--%>
-<%--        <span>${mess}</span>--%>
-<%--    </c:if>--%>
+    <c:if test="${mess!=null}">
+        <span>${mess}</span>
+    </c:if>
 
-<form action="/product?action=edit" method="post">
-    <%--    <table>--%>
-    <%--        <tr>--%>
-    <%--            <td hidden>Id</td>--%>
-    <%--            <th>Name</th>--%>
-    <%--            <th>Origin</th>--%>
-    <%--            <th>Price</th>--%>
-    <%--        </tr>--%>
+<form action="/product?action=edit" method="post" style="text-align: center">
 
-    <%--        <tr>--%>
-    <%--            <td hidden><input type="text" name="id" value="${product.getId()}"></td>--%>
-    <%--            <td><input type="text" name="name" value="${requestScope["product"].getName()}"></td>--%>
-    <%--            <td><input type="text" name="origin" value="${requestScope["product"].getPrice()}"></td>--%>
-    <%--            <td><input type="text" name="price" value="${requestScope["product"].getPrice()}"></td>--%>
-
-    <%--        </tr>--%>
-    <%--    </table>--%>
     <table style="width: 500px">
 
         <tr>

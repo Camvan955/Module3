@@ -31,8 +31,6 @@ public class ProductServlet extends HttpServlet {
             case "remove":
                 delete(request,response);
                 break;
-
-
             default:
 
         }
@@ -57,6 +55,7 @@ public class ProductServlet extends HttpServlet {
         String name = request.getParameter("name");
         String origin = request.getParameter("origin");
         Double price = Double.valueOf(request.getParameter("price"));
+        product.setId(id);
         product.setName(name);
         product.setOrigin(origin);
         product.setPrice(price);

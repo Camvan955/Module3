@@ -25,28 +25,28 @@
 <p>
     <a style="text-decoration: none" href="/product">Back list product</a>
 </p>
-<%--<p><c:if test="${mess!=null}">--%>
-<%--    <span style="color: red">${mess}</span>--%>
-<%--</c:if>--%>
+<p><c:if test="${mess!=null}">
+    <span style="color: red">${mess}</span>
+</c:if>
 
-<%--</p>--%>
-<%--<table class="table table-striped">--%>
-<%--    <tr>--%>
-<%--        <td>Id</td>--%>
-<%--        <td>${product.getId()}</td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td>Name</td>--%>
-<%--        <td>${product.getName()}</td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td>Origon</td>--%>
-<%--        <td>${product.getOrigin()}</td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td>Price</td>--%>
-<%--        <td>${product.getPrice()}</td>--%>
-<%--    </tr>--%>
-<%--</table>--%>
+</p>
+<table class="table table-striped">
+    <tr>
+        <td>Id</td>
+        <td>${product.getId()}</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>${product.getName()}</td>
+    </tr>
+    <tr>
+        <td>Origon</td>
+        <td>${product.getOrigin()}</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>${product.getPrice()}</td>
+    </tr>
+</table>
 </body>
 </html>
