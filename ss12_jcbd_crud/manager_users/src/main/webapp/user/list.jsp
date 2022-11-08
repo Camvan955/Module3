@@ -27,6 +27,7 @@
             <input class="form-control me-2" type="text" placeholder="Search" name="country" aria-label="Search" style="max-width: 100px; margin-left: 500px">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+        <a href="/users?action=sort">Sort </a>
     </h2>
     <caption><h2>List of Users</h2></caption>
 </center>
@@ -60,7 +61,7 @@
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form action="/users" method="post">
+            <form action="/users" method="get">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -68,7 +69,7 @@
                     </div>
                     <div class="modal-body">
                         <input type="text" hidden name="action" value="delete">
-                        <input type="text" hidden id="deleteId" value="deleteId">
+                        <input type="text" hidden id="deleteId" name="deleteId">
                         <span>Do you want delete user?</span><span style="color:red" id="deleteName"></span>
                     </div>
                     <div class="modal-footer">
