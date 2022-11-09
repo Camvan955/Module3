@@ -29,4 +29,8 @@ public interface IUserDAO {
     void insertUpdateUseTransaction();
 
     List<User> displayUser();
+    boolean updateUserr(User user);
+    boolean deleteUserr(int id) throws SQLException;
+
+    void addUserTransaction();
 }

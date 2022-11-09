@@ -94,10 +94,8 @@ public class UserServlet extends HttpServlet {
                     testWithoutTran(request, response);
                     break;
                 case "test-use-tran":
-
                     testUseTran(request, response);
                     break;
-
                 default:
                     listUser(request, response);
                     break;
@@ -106,6 +104,8 @@ public class UserServlet extends HttpServlet {
             throw new ServletException(ex);
         }
     }
+
+
 
     private void testUseTran(HttpServletRequest request, HttpServletResponse response) {
         userDAO.insertUpdateUseTransaction();

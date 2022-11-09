@@ -39,7 +39,7 @@ public class UserDAO implements IUserDAO {
     public UserDAO() {
     }
 
-    protected Connection getConnection() {
+    private Connection getConnection() {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -384,6 +384,21 @@ public class UserDAO implements IUserDAO {
         }
         return users;
         }
+
+    @Override
+    public boolean updateUserr(User user) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteUserr(int id) throws SQLException {
+        return false;
+    }
+
+    @Override
+    public void addUserTransaction() {
+
+    }
 
 
     private void printSQLException(SQLException ex) {
