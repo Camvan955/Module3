@@ -79,9 +79,9 @@
         </div>
         <div class="col-lg-3">
             <div class="container-fluid">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex" action="/customer?action=search" method="post">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Nhập tên/ địa chỉ khách hàng cần tìm" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Tìm</button>
                 </form>
             </div>
         </div>
@@ -105,7 +105,7 @@
                 <div class="form-floating col-lg-8 mb-3">
                     <select class="form-select" aria-label="Default select example" id="formInput1"
                             name="customerTypeId">
-                        <option value="Hãy chọn loại khách hàng" selected>Hãy chọn loại khách hàng</option>
+                        <option value="Hãy chọn loại khách hàng" selected>Chọn loại khách hàng</option>
                         <option value="1">Diamond</option>
                         <option value="2">Platinium</option>
                         <option value="3">Gold</option>

@@ -70,9 +70,9 @@
         </div>
         <div class="col-lg-3">
             <div class="container-fluid">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                <form class="d-flex" action="/customer?action=search" method="post">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Nhập tên/ địa chỉ khách hàng cần tìm" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Tìm</button>
                 </form>
             </div>
         </div>
@@ -120,7 +120,7 @@
                 <td>${customer.getPhoneNumber()}</td>
                 <td>${customer.getEmail()}</td>
                 <td>${customer.getAddress()}</td>
-                <td>${customer.getCustomerTypeId()}</td>
+                <td>${customer.getCustomerTypeName()}</td>
                 <td>
                     <a href="/customer?action=edit&id=${customer.id}"
                        class="btn btn-primary btn-lg ms-2 text-light">Cập nhật</a>
@@ -157,8 +157,8 @@
                 <div class="modal-footer">
                     <input type="text" hidden name="action" value="delete">
                     <input type="text" hidden name="deleteId" id="deleteId">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Trở lại</button>
+                    <button type="submit" class="btn btn-primary">Xóa</button>
                 </div>
             </form>
 

@@ -1,11 +1,11 @@
 package repository.customer;
 
 import model.Customer;
-import model.Employee;
 
 import java.util.List;
 
 public interface ICustomerRepository {
+
     List<Customer> findAllCustomer();
 
     boolean addCustomer(Customer customer);
@@ -14,7 +14,7 @@ public interface ICustomerRepository {
 
     boolean editCustomer(int id, Customer customer);
 
-    Customer findByID(int id);
+    List<Customer> search(String name);
 
-    List<Customer> searchByName(String name);
+    Customer findById(int id);
 }

@@ -31,12 +31,12 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public Customer findByID(int id) {
-        return customerRepository.findByID(id);
+    public List<Customer> search(String name) {
+        return customerRepository.search(name);
     }
 
     @Override
-    public List<Customer> searchByName(String name) {
-        return customerRepository.searchByName(name);
+    public Customer findById(int id) {
+        return customerRepository.findById(id);
     }
 }

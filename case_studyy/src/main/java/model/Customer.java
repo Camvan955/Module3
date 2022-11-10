@@ -11,11 +11,28 @@ public class Customer {
     private String email;
     private String address;
     private int customerTypeId;
+    private String customerTypeName;
+
 
     public Customer() {
+
     }
 
-    public Customer(String name, String birthday, boolean gender, String idCard, String phoneNumber, String email, String address, int customerTypeId) {
+    public Customer(int id, String name, String birthday, boolean gender, String idCard, String phoneNumber, String email, String address, int customerTypeId, String customerTypeName) {
+        this.id = id;
+        this.name = name;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.customerTypeId = customerTypeId;
+        this.customerTypeName = customerTypeName;
+    }
+
+    public Customer(int id, String name, String birthday, boolean gender, String idCard, String phoneNumber, String email, String address, int customerTypeId) {
+        this.id = id;
         this.name = name;
         this.birthday = birthday;
         this.gender = gender;
@@ -26,8 +43,7 @@ public class Customer {
         this.customerTypeId = customerTypeId;
     }
 
-    public Customer(int id, String name, String birthday, boolean gender, String idCard, String phoneNumber, String email, String address, int customerTypeId) {
-        this.id = id;
+    public Customer(String name, String birthday, boolean gender, String idCard, String phoneNumber, String email, String address, int customerTypeId) {
         this.name = name;
         this.birthday = birthday;
         this.gender = gender;
@@ -108,4 +124,13 @@ public class Customer {
 
     public void setCustomerTypeId(int customerTypeId) {
         this.customerTypeId = customerTypeId;
-    }}
+    }
+
+    public String getCustomerTypeName() {
+        return customerTypeName;
+    }
+
+    public void setCustomerTypeName(String customerTypeName) {
+        this.customerTypeName = customerTypeName;
+    }
+}
