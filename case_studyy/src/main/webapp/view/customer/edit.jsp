@@ -82,8 +82,11 @@
 </div>
 <div>
     <h1 style="text-align: center; margin-top: 20px"> CẬP NHẬT THÔNG TIN KHÁCH HÀNG</h1>
+
     <form action="/customer?action=edit" method="post">
         <div>
+            <span hidden>ID</span>
+            <input type="text" hidden name="id" value="${customer.getId()}">
             <span>Tên</span>
             <input type="text" name="name" value="${customer.getName()}"><br>
             <span>Ngày sinh</span>
@@ -94,7 +97,7 @@
             <span>Nữ</span>
             <input type="radio" name="gender" value="false"><br>
             <span>Số CMND</span>
-            <input type="text" name="idcard" value="${customer.getIdCard()}"><br>
+            <input type="text" name="idCard" value="${customer.getIdCard()}"><br>
             <span>Số điện thoại</span>
             <input type="text" name="phoneNumber" value="${customer.getPhoneNumber()}"><br>
             <span>Email</span>

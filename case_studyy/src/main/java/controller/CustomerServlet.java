@@ -41,9 +41,27 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name= request.getParameter("name");
+        String birthday = request.getParameter("birthday");
+        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
+        String idCard = request.getParameter("idCard");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int customerTypeId= Integer.parseInt(request.getParameter("customerTypeId"));
 
+        Customer customer = new Customer(id, name, birthday, gender, idCard, phoneNumber, email, address, customerTypeId);
 
+        boolean check = customerService.editCustomer(id, customer);
+        String mess = "Cập nhật không thành công";
+        if(check){
+            mess = "Cập nhật thành công";
+        }
+        request.setAttribute("mess", mess);
+       showCustomerList(request,response);
     }
+
 
     private void searchCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("search");
@@ -117,7 +135,7 @@ public class CustomerServlet extends HttpServlet {
                 showCustomerList(request, response);
         }
     }
-    
+
     
     private void showCustomerList(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = customerService.findAllCustomer();
@@ -130,25 +148,11 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showEditCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String name= request.getParameter("name");
-        String birthday = request.getParameter("birthday");
-        boolean gender = Boolean.parseBoolean(request.getParameter("gender"));
-        String idCard = request.getParameter("idCard");
-        String phoneNumber = request.getParameter("phoneNumber");
-        String email = request.getParameter("email");
-        String address = request.getParameter("address");
-        int customerTypeId= Integer.parseInt(request.getParameter("customerTypeId"));
+        int id =Integer.parseInt(request.getParameter("id"));
+        Customer customer = customerService.findById(id);
 
-        Customer customer = new Customer(id, name, birthday, gender, idCard, phoneNumber, email, address, customerTypeId);
-
-        boolean check = customerService.editCustomer(id, customer);
-        String mess = "Cập nhật không thành công";
-        if(check){
-            mess = "Cập nhật thành công";
-        }
-        request.setAttribute("mess", mess);
         try {
+            request.setAttribute("customer", customer);
             request.getRequestDispatcher("view/customer/edit.jsp").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
@@ -156,7 +160,6 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
     private void showAddCustomer(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.getRequestDispatcher("view/customer/add.isp").forward(request, response);

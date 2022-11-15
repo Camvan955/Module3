@@ -84,6 +84,9 @@
         </div>
         <div class="col-8" style="margin-top: 10px">
             <h1 style="text-align: center">CUSTOMER LIST</h1>
+            <h1><c:if test="${mess!=null}">
+                <span>${mess}</span>
+            </c:if></h1>
         </div>
         <div class="col-2" style="margin-top: 20px">
             <a href="view/customer/add.jsp">
@@ -91,7 +94,7 @@
             </a>
         </div>
     </div>
-    <table class="table table-striped table-lg" style="margin-top: 10px">
+    <table class="table table-striped table-lg" style="margin-top: 10px" id="tableCustomer">
         <thead>
         <tr>
             <th>STT</th>
@@ -124,6 +127,7 @@
                 <td>
                     <a href="/customer?action=edit&id=${customer.id}"
                        class="btn btn-primary btn-lg ms-2 text-light">Cập nhật</a>
+
                 </td>
                 <td>
                     <button type="button" onclick="infoDelete('${customer.getId()}', '${customer.getName()}')"
@@ -157,7 +161,7 @@
                 <div class="modal-footer">
                     <input type="text" hidden name="action" value="delete">
                     <input type="text" hidden name="deleteId" id="deleteId">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Trở lại</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Trở lại</button>/
                     <button type="submit" class="btn btn-primary">Xóa</button>
                 </div>
             </form>
@@ -170,5 +174,26 @@
         document.getElementById("deleteId").value = id;
         document.getElementById("deleteName").innerText = name;
     }
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableCustomer').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 3
+        });
+    });
 </script>
 </html>

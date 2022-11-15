@@ -93,6 +93,8 @@ public class CustomerRepository implements ICustomerRepository {
             ps.setString(6, customer.getEmail());
             ps.setString(7, customer.getAddress());
             ps.setInt(8, customer.getCustomerTypeId());
+            ps.setInt(9, customer.getId());
+            return ps.executeUpdate() > 0;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
